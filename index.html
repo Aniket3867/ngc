@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="NextGenCore AI Token - Revolutionizing Blockchain with AI-powered solutions. Secure, decentralized, and fast transactions.">
-    <meta name="keywords" content="NextGenCore AI, Blockchain, AI Token, Decentralized Platform, Secure Transactions">
     <title>NextGenCore AI Token</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.min.js"></script>
     <style>
@@ -20,57 +18,48 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            background: radial-gradient(circle, #0f2027, #1c2d36, #223944);
             color: #fff;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 25, 35, 0.9);
             position: sticky;
             top: 0;
             z-index: 10;
-            padding: 20px 10px;
+            padding: 15px 20px;
             text-align: center;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            color: #66fcf1;
-            font-size: 2rem;
-            animation: glow 1.5s infinite;
-            text-shadow: 0px 0px 10px #66fcf1, 0px 0px 20px #66fcf1;
-        }
-
-        header nav {
-            margin-top: 10px;
+            color: #00d4ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
         }
 
         header nav a {
-            color: #c5c6c7;
+            color: #b3c4c8;
             text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
+            margin: 0 15px;
+            font-weight: 400;
+            font-size: 1rem;
             transition: color 0.3s ease-in-out;
         }
 
         header nav a:hover {
-            color: #66fcf1;
-        }
-
-        /* 3D Canvas */
-        #canvas-container {
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        canvas {
-            display: block;
+            color: #00d4ff;
         }
 
         /* Hero Section */
+        #canvas-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .hero-content {
             position: absolute;
             top: 50%;
@@ -81,159 +70,96 @@
         }
 
         .hero-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: #66fcf1;
-            text-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
-            animation: typewriter 4s steps(40, end), blink 0.7s step-end infinite alternate;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #66fcf1;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
         }
 
         .hero-content p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #b3c4c8;
         }
 
         .hero-content .cta {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #66fcf1;
-            color: #1f2833;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, #00d4ff, #0077aa);
+            color: #fff;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 30px;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
-            animation: pulse 2s infinite;
+            border-radius: 5px;
+            box-shadow: 0 3px 15px rgba(0, 212, 255, 0.5);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
         .hero-content .cta:hover {
-            background: #45a29e;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.7);
         }
 
         /* Features Section */
         .features {
-            background: #1f2833;
             padding: 60px 20px;
-            animation: gradientMove 5s infinite;
-            background-size: 200% 200%;
+            background: #12242f;
         }
 
         .features h2 {
             text-align: center;
             margin-bottom: 40px;
             font-size: 2rem;
-            color: #66fcf1;
-            text-shadow: 0px 0px 15px #66fcf1;
+            color: #00d4ff;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .feature {
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(135deg, #0e2b3a, #18394a);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0px 0px 15px #66fcf1;
         }
 
         .feature:hover {
             transform: translateY(-10px);
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8), 0px 0px 25px #66fcf1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #66fcf1;
-            text-shadow: 0px 0px 10px #66fcf1;
+            color: #00d4ff;
         }
 
         .feature p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #c5c6c7;
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 25, 35, 0.9);
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            color: #c5c6c7;
+            padding: 20px;
+            color: #b3c4c8;
         }
 
         footer a {
-            color: #66fcf1;
+            color: #00d4ff;
             text-decoration: none;
             font-weight: bold;
         }
 
         footer a:hover {
-            color: #45a29e;
-        }
-
-        /* Animations */
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0px 0px 10px #66fcf1, 0px 0px 20px #66fcf1, 0px 0px 30px #66fcf1;
-            }
-            50% {
-                text-shadow: 0px 0px 20px #45a29e, 0px 0px 30px #45a29e, 0px 0px 40px #45a29e;
-            }
-        }
-
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            from {
-                border-right-color: #66fcf1;
-            }
-            to {
-                border-right-color: transparent;
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
-            }
-            50% {
-                box-shadow: 0px 0px 20px #45a29e, 0px 0px 40px #45a29e;
-            }
-            100% {
-                box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
-            }
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            color: #0077aa;
         }
     </style>
 </head>
@@ -241,17 +167,17 @@
     <header>
         <h1>NextGenCore AI Token</h1>
         <nav>
-            <a href="#features" aria-label="Go to Features">Features</a>
-            <a href="#tokenomics" aria-label="Go to Tokenomics">Tokenomics</a>
-            <a href="#footer" aria-label="Go to Contact">Contact</a>
+            <a href="#features">Features</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#footer">Contact</a>
         </nav>
     </header>
 
     <div id="canvas-container">
         <div class="hero-content">
             <h2>NextGenCore AI Token</h2>
-            <p>Revolutionizing Blockchain with AI.</p>
-            <a href="#features" class="cta" aria-label="Learn more about Features">Learn More</a>
+            <p>Revolutionizing Blockchain with AI Innovation.</p>
+            <a href="#features" class="cta">Discover More</a>
         </div>
     </div>
 
@@ -259,46 +185,63 @@
         <h2>Features</h2>
         <div class="features-grid">
             <div class="feature">
-                <h3>Secure</h3>
-                <p>Advanced encryption for secure blockchain transactions.</p>
+                <h3>AI-Powered</h3>
+                <p>Intelligent solutions to enhance blockchain security and performance.</p>
             </div>
             <div class="feature">
                 <h3>Decentralized</h3>
-                <p>Fully decentralized platform for global solutions.</p>
+                <p>A transparent and globally accessible blockchain platform.</p>
             </div>
             <div class="feature">
-                <h3>Fast</h3>
-                <p>High-speed transactions with low fees.</p>
+                <h3>Fast & Secure</h3>
+                <p>Lightning-fast transactions with industry-leading encryption.</p>
             </div>
         </div>
     </section>
 
     <footer id="footer">
-        <p>© 2025 NextGenCore AI | All rights reserved</p>
+        <p>© 2025 NextGenCore AI | All Rights Reserved</p>
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
     <script>
         // GSAP animation for hero text
-        gsap.from(".hero-content h2", {
-            duration: 1.5,
-            opacity: 0,
-            y: -50,
-            ease: "power4.out",
-        });
+        gsap.from(".hero-content h2", { duration: 1.5, opacity: 0, y: -50, ease: "power4.out" });
+        gsap.from(".hero-content p", { duration: 1.5, opacity: 0, y: 50, delay: 0.3, ease: "power4.out" });
+        gsap.from(".hero-content .cta", { duration: 1.5, opacity: 0, scale: 0.8, delay: 0.6, ease: "power4.out" });
 
-        gsap.from(".hero-content p", {
-            duration: 1.5,
-            opacity: 0,
-            y: 50,
-            ease: "power4.out",
-        });
+        // Three.js glowing effect
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById("canvas-container").appendChild(renderer.domElement);
 
-        gsap.from(".hero-content .cta", {
-            duration: 1.5,
-            opacity: 0,
-            scale: 0.8,
-            ease: "power4.out",
+        const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+        const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0x00d4ff, emissive: 0x0077aa, emissiveIntensity: 0.8 });
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        scene.add(sphere);
+
+        const pointLight = new THREE.PointLight(0x00d4ff, 1, 100);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        camera.position.z = 3;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.01;
+            sphere.rotation.x += 0.005;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Resize event
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
