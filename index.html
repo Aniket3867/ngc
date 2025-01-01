@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NextGenCore AI Token</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.38.0/tsparticles.bundle.min.js"></script>
     <style>
         /* Global Styles */
         * {
@@ -17,31 +16,28 @@
             box-sizing: border-box;
         }
 
-        html {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle, #0f2027, #1c2d36, #223944);
-            color: #fff;
-            overflow-x: hidden;
-        }
-
         header {
-            background: rgba(10, 25, 35, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             position: sticky;
             top: 0;
             z-index: 10;
-            padding: 10px 20px;
+            padding: 20px 0;
             text-align: center;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            color: #00d4ff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            color: #66fcf1;
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease-in-out;
         }
 
         header nav {
@@ -49,25 +45,29 @@
         }
 
         header nav a {
-            color: #b3c4c8;
+            color: #c5c6c7;
             text-decoration: none;
-            margin: 0 10px;
-            font-weight: 400;
-            font-size: 1rem;
+            margin: 0 15px;
+            font-weight: 500;
             transition: color 0.3s ease-in-out;
         }
 
         header nav a:hover {
-            color: #00d4ff;
+            color: #66fcf1;
+        }
+
+        /* 3D Canvas */
+        #canvas-container {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        canvas {
+            display: block;
         }
 
         /* Hero Section */
-        #canvas-container {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
         .hero-content {
             position: absolute;
             top: 50%;
@@ -75,193 +75,218 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 5;
-            padding: 0 20px;
         }
 
         .hero-content h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #00d4ff;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #66fcf1;
         }
 
         .hero-content p {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            color: #b3c4c8;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
         .hero-content .cta {
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #00d4ff, #0077aa);
-            color: #fff;
+            display: inline-block;
+            padding: 15px 30px;
+            background: #66fcf1;
+            color: #1f2833;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0 3px 15px rgba(0, 212, 255, 0.5);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 30px;
+            transition: background 0.3s ease;
         }
 
         .hero-content .cta:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.7);
+            background: #45a29e;
         }
 
         /* Features Section */
         .features {
-            padding: 40px 20px;
-            background: #12242f;
+            background: #1f2833;
+            padding: 60px 20px;
         }
 
         .features h2 {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.5rem;
-            color: #00d4ff;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #66fcf1;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .feature {
-            background: linear-gradient(135deg, #0e2b3a, #18394a);
+            background: #0b141a;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .feature:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
         .feature h3 {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
-            color: #00d4ff;
+            color: #66fcf1;
         }
 
         .feature p {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: #c5c6c7;
         }
 
-        /* Go to Top Button */
-        .go-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #00d4ff;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            padding: 10px 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0, 212, 255, 0.6);
-            display: none;
-            z-index: 100;
+        /* Roadmap Section */
+        .roadmap {
+            background: #1f2833;
+            padding: 60px 20px;
         }
 
-        .go-top:hover {
-            background: #0077aa;
-        }
-
-        footer {
-            background: rgba(10, 25, 35, 0.9);
+        .roadmap h2 {
             text-align: center;
-            padding: 20px;
-            color: #b3c4c8;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #66fcf1;
+        }
+
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap ul li {
+            font-size: 1.25rem;
+            color: #c5c6c7;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            color: #c5c6c7;
         }
 
         footer a {
-            color: #00d4ff;
+            color: #66fcf1;
             text-decoration: none;
             font-weight: bold;
         }
 
         footer a:hover {
-            color: #0077aa;
+            color: #45a29e;
         }
 
-        /* Additional Styles for AI Vibes and Animations */
-        .data-flow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
     </style>
 </head>
 <body>
     <header>
         <h1>NextGenCore AI Token</h1>
         <nav>
-            <a href="#about">About</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
             <a href="#features">Features</a>
-            <a href="#contact">Contact</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#footer">Contact</a>
         </nav>
     </header>
 
     <div id="canvas-container">
         <div class="hero-content">
             <h2>NextGenCore AI Token</h2>
-            <p>Revolutionizing Blockchain with AI Innovation.</p>
-            <a href="#features" class="cta">Discover More</a>
+            <p>Revolutionizing Blockchain with AI.</p>
+            <a href="#features" class="cta">Learn More</a>
         </div>
-        <div class="data-flow" id="particles-js"></div>
     </div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About NextGenCore AI Token</h2>
-            <p>NextGenCore AI Token is a groundbreaking project designed to leverage the power of artificial intelligence (AI) and blockchain technology. Our goal is to build a secure, scalable, and decentralized platform that enhances blockchain capabilities by integrating AI models to solve real-world problems.</p>
-        </div>
-    </section>
-
-    <!-- Tokenomics Section -->
-    <section class="tokenomics" id="tokenomics">
-        <div class="container">
-            <h2>Tokenomics</h2>
-            <p>The NextGenCore AI Token is a utility token that serves as the fuel for the platform's ecosystem. Here's the breakdown of our tokenomics:</p>
-            <ul>
-                <li>Total Supply: 1,000,000,000 NGC Tokens</li>
-                <li>Initial Circulating Supply: 500,000,000 NGC Tokens</li>
-                <li>Private Sale: 20%</li>
-                <li>Public Sale: 30%</li>
-                <li>Team and Advisors: 15%</li>
-                <li>Partnerships & Ecosystem: 10%</li>
-                <li>Reserve Fund: 15%</li>
-                <li>Community Rewards: 10%</li>
-            </ul>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Features of NextGenCore AI Token</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Decentralized</h3>
+                <p>Completely decentralized and powered by blockchain technology, ensuring transparency and security.</p>
+            </div>
+            <div class="feature">
+                <h3>AI-Driven</h3>
+                <p>Integrates artificial intelligence to enhance platform features and optimize processes.</p>
+            </div>
+            <div class="feature">
+                <h3>Scalable</h3>
+                <p>Scalable infrastructure to support a growing ecosystem and user base.</p>
+            </div>
         </div>
     </section>
 
     <!-- Roadmap Section -->
     <section class="roadmap" id="roadmap">
-                move: { enable: true, speed: 1 },
-                repulse: { enable: true, distance: 100, duration: 1 },
-                roll: { enable: true, speed: 1, mode: "vertical" },
-                tilt: { enable: true, speed: 1, direction: "random" },
-                twinkle: { enable: true, frequency: 0.05, opacity: 1 },
-                wobble: { enable: true, distance: 15, speed: 25 },
-                links: { enable: true, distance: 150, color: "#00d4ff", opacity: 0.4, width: 1 },
-                collisions: { enable: true, mode: "bounce" },
-                interactivity: { events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } } }
+        <h2>Our Roadmap</h2>
+        <div class="container">
+            <ul>
+                <li>Q1 2025: Project Conceptualization & Development</li>
+                <li>Q2 2025: Private Sale & Public Sale</li>
+                <li>Q3 2025: Exchange Listings & Community Growth</li>
+                <li>Q4 2025: AI Integration into Platform</li>
+                <li>Q1 2026: Full Platform Launch</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>&copy; 2025 NextGenCore AI Token. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Go Top Button -->
+    <button class="go-top" id="goTop">&#8593;</button>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Go Top Button Visibility
+        const goTopBtn = document.getElementById('goTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                goTopBtn.style.display = 'block';
+            } else {
+                goTopBtn.style.display = 'none';
             }
+        });
+
+        goTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
