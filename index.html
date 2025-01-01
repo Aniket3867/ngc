@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NextGenCore AI Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-post {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .blog-post h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        .blog-post p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .blog-post .read-more {
+            color: #008CBA;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .blog-post .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 15px;
+            }
+
+            .blog-post h2 {
+                font-size: 1.8em;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Add some JS toggle for the dark mode button */
+        .dark-mode-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .dark-mode-btn:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode header {
+            background-color: #222;
+        }
+
+        body.dark-mode .blog-post {
+            background-color: #2d2d2d;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode .footer {
+            background-color: #222;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NextGenCore AI Blog</h1>
+        <p>Your journey into the world of blockchain, AI, and crypto.</p>
+        <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </header>
+
+    <div class="main-content">
+        <div class="blog-post">
+            <h2>Welcome to the Future of AI and Blockchain</h2>
+            <p>NextGenCore AI is designed to bridge the gap between artificial intelligence and blockchain technologies. Our goal is to build a platform that allows seamless integration of these two groundbreaking technologies.</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+
+        <div class="blog-post">
+            <h2>Tokenomics of NextGenCore AI</h2>
+            <p>Our tokenomics is designed to ensure long-term sustainability and growth. We focus on scalability and utility within the AI and crypto ecosystem.</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+
+        <div class="blog-post">
+            <h2>How Blockchain is Revolutionizing AI</h2>
+            <p>Blockchain technology offers AI systems a decentralized, transparent, and secure way to process data. This synergy has the potential to revolutionize how AI operates across industries.</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 NextGenCore AI | All Rights Reserved</p>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
