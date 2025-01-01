@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="NextGenCore AI Token - Revolutionizing Blockchain with AI-powered solutions. Secure, decentralized, and fast transactions.">
+    <meta name="keywords" content="NextGenCore AI, Blockchain, AI Token, Decentralized Platform, Secure Transactions">
     <title>NextGenCore AI Token</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -29,14 +31,14 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            padding: 20px 0;
+            padding: 20px 10px;
             text-align: center;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
             color: #66fcf1;
-            font-size: 2.5rem;
+            font-size: 2rem;
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -47,7 +49,7 @@
         header nav a {
             color: #c5c6c7;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             font-weight: 500;
             transition: color 0.3s ease-in-out;
         }
@@ -78,21 +80,21 @@
         }
 
         .hero-content h2 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
             color: #66fcf1;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
 
         .hero-content .cta {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 20px;
             background: #66fcf1;
             color: #1f2833;
             font-weight: bold;
@@ -114,13 +116,13 @@
         .features h2 {
             text-align: center;
             margin-bottom: 40px;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #66fcf1;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -140,7 +142,7 @@
         }
 
         .feature h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             color: #66fcf1;
         }
@@ -148,30 +150,6 @@
         .feature p {
             font-size: 1rem;
             color: #c5c6c7;
-        }
-
-        /* Roadmap Section */
-        .roadmap {
-            background: #1f2833;
-            padding: 60px 20px;
-        }
-
-        .roadmap h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: #66fcf1;
-        }
-
-        .roadmap ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .roadmap ul li {
-            font-size: 1.25rem;
-            color: #c5c6c7;
-            margin-bottom: 15px;
         }
 
         /* Footer */
@@ -193,13 +171,32 @@
             color: #45a29e;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 2rem;
             }
-            to {
-                opacity: 1;
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .features h2 {
+                font-size: 1.8rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -208,9 +205,9 @@
     <header>
         <h1>NextGenCore AI Token</h1>
         <nav>
-            <a href="#features">Features</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#footer">Contact</a>
+            <a href="#features" aria-label="Go to Features">Features</a>
+            <a href="#tokenomics" aria-label="Go to Tokenomics">Tokenomics</a>
+            <a href="#footer" aria-label="Go to Contact">Contact</a>
         </nav>
     </header>
 
@@ -218,75 +215,73 @@
         <div class="hero-content">
             <h2>NextGenCore AI Token</h2>
             <p>Revolutionizing Blockchain with AI.</p>
-            <a href="#features" class="cta">Learn More</a>
+            <a href="#features" class="cta" aria-label="Learn more about Features">Learn More</a>
         </div>
     </div>
 
-    <!-- Features Section -->
     <section class="features" id="features">
-        <h2>Features of NextGenCore AI Token</h2>
+        <h2>Features</h2>
         <div class="features-grid">
             <div class="feature">
+                <h3>Secure</h3>
+                <p>Advanced encryption for secure blockchain transactions.</p>
+            </div>
+            <div class="feature">
                 <h3>Decentralized</h3>
-                <p>Completely decentralized and powered by blockchain technology, ensuring transparency and security.</p>
+                <p>Fully decentralized platform for global solutions.</p>
             </div>
             <div class="feature">
-                <h3>AI-Driven</h3>
-                <p>Integrates artificial intelligence to enhance platform features and optimize processes.</p>
-            </div>
-            <div class="feature">
-                <h3>Scalable</h3>
-                <p>Scalable infrastructure to support a growing ecosystem and user base.</p>
+                <h3>Fast</h3>
+                <p>High-speed transactions with low fees.</p>
             </div>
         </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section class="roadmap" id="roadmap">
-        <h2>Our Roadmap</h2>
-        <div class="container">
-            <ul>
-                <li>Q1 2025: Project Conceptualization & Development</li>
-                <li>Q2 2025: Private Sale & Public Sale</li>
-                <li>Q3 2025: Exchange Listings & Community Growth</li>
-                <li>Q4 2025: AI Integration into Platform</li>
-                <li>Q1 2026: Full Platform Launch</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer id="footer">
-        <p>&copy; 2025 NextGenCore AI Token. All Rights Reserved.</p>
+        <p>© 2025 NextGenCore AI | All rights reserved</p>
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
-    <!-- Go Top Button -->
-    <button class="go-top" id="goTop">&#8593;</button>
-
     <script>
-        // Smooth Scroll
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // GSAP animation for hero text
+        gsap.from(".hero-content h2", { duration: 1.5, opacity: 0, y: 50, ease: "power4.out" });
+        gsap.from(".hero-content p", { duration: 1.5, opacity: 0, y: 50, delay: 0.5 });
+        gsap.from(".hero-content .cta", { duration: 1.5, opacity: 0, y: 50, delay: 0.7 });
 
-        // Go Top Button Visibility
-        const goTopBtn = document.getElementById('goTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                goTopBtn.style.display = 'block';
-            } else {
-                goTopBtn.style.display = 'none';
-            }
-        });
+        // THREE.js 3D background animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        const container = document.getElementById("canvas-container");
 
-        goTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+        const material = new THREE.MeshStandardMaterial({ color: 0x66fcf1, wireframe: true });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        camera.position.z = 3;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Responsive resizing
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
