@@ -39,7 +39,8 @@
         header h1 {
             color: #66fcf1;
             font-size: 2rem;
-            animation: fadeIn 1s ease-in-out;
+            animation: glow 1.5s infinite;
+            text-shadow: 0px 0px 10px #66fcf1, 0px 0px 20px #66fcf1;
         }
 
         header nav {
@@ -84,6 +85,11 @@
             margin-bottom: 20px;
             line-height: 1.2;
             color: #66fcf1;
+            text-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
+            animation: typewriter 4s steps(40, end), blink 0.7s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #66fcf1;
         }
 
         .hero-content p {
@@ -100,7 +106,9 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 30px;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
+            animation: pulse 2s infinite;
         }
 
         .hero-content .cta:hover {
@@ -111,6 +119,8 @@
         .features {
             background: #1f2833;
             padding: 60px 20px;
+            animation: gradientMove 5s infinite;
+            background-size: 200% 200%;
         }
 
         .features h2 {
@@ -118,6 +128,7 @@
             margin-bottom: 40px;
             font-size: 2rem;
             color: #66fcf1;
+            text-shadow: 0px 0px 15px #66fcf1;
         }
 
         .features-grid {
@@ -129,22 +140,24 @@
         }
 
         .feature {
-            background: #0b141a;
+            background: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0px 0px 15px #66fcf1;
         }
 
         .feature:hover {
             transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8), 0px 0px 25px #66fcf1;
         }
 
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: #66fcf1;
+            text-shadow: 0px 0px 10px #66fcf1;
         }
 
         .feature p {
@@ -171,32 +184,55 @@
             color: #45a29e;
         }
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .hero-content h2 {
-                font-size: 2rem;
+        /* Animations */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0px 0px 10px #66fcf1, 0px 0px 20px #66fcf1, 0px 0px 30px #66fcf1;
             }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .features h2 {
-                font-size: 1.8rem;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
+            50% {
+                text-shadow: 0px 0px 20px #45a29e, 0px 0px 30px #45a29e, 0px 0px 40px #45a29e;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero-content h2 {
-                font-size: 1.5rem;
+        @keyframes typewriter {
+            from {
+                width: 0;
             }
+            to {
+                width: 100%;
+            }
+        }
 
-            .hero-content p {
-                font-size: 0.9rem;
+        @keyframes blink {
+            from {
+                border-right-color: #66fcf1;
+            }
+            to {
+                border-right-color: transparent;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
+            }
+            50% {
+                box-shadow: 0px 0px 20px #45a29e, 0px 0px 40px #45a29e;
+            }
+            100% {
+                box-shadow: 0px 0px 15px #66fcf1, 0px 0px 30px #66fcf1;
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
     </style>
@@ -244,44 +280,25 @@
 
     <script>
         // GSAP animation for hero text
-        gsap.from(".hero-content h2", { duration: 1.5, opacity: 0, y: 50, ease: "power4.out" });
-        gsap.from(".hero-content p", { duration: 1.5, opacity: 0, y: 50, delay: 0.5 });
-        gsap.from(".hero-content .cta", { duration: 1.5, opacity: 0, y: 50, delay: 0.7 });
+        gsap.from(".hero-content h2", {
+            duration: 1.5,
+            opacity: 0,
+            y: -50,
+            ease: "power4.out",
+        });
 
-        // THREE.js 3D background animation
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        const container = document.getElementById("canvas-container");
+        gsap.from(".hero-content p", {
+            duration: 1.5,
+            opacity: 0,
+            y: 50,
+            ease: "power4.out",
+        });
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
-
-        const geometry = new THREE.SphereGeometry(1, 32, 32);
-        const material = new THREE.MeshStandardMaterial({ color: 0x66fcf1, wireframe: true });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
-
-        const light = new THREE.PointLight(0xffffff, 1, 100);
-        light.position.set(10, 10, 10);
-        scene.add(light);
-
-        camera.position.z = 3;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            sphere.rotation.x += 0.01;
-            sphere.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        // Responsive resizing
-        window.addEventListener("resize", () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+        gsap.from(".hero-content .cta", {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.8,
+            ease: "power4.out",
         });
     </script>
 </body>
