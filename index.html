@@ -16,12 +16,15 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: radial-gradient(circle, #0f2027, #1c2d36, #223944);
             color: #fff;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         header {
@@ -29,7 +32,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            padding: 15px 20px;
+            padding: 10px 20px;
             text-align: center;
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
         }
@@ -37,13 +40,17 @@
         header h1 {
             color: #00d4ff;
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
+        }
+
+        header nav {
+            margin-top: 10px;
         }
 
         header nav a {
             color: #b3c4c8;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             font-weight: 400;
             font-size: 1rem;
             transition: color 0.3s ease-in-out;
@@ -67,23 +74,24 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 5;
+            padding: 0 20px;
         }
 
         .hero-content h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 15px;
             color: #00d4ff;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 25px;
             color: #b3c4c8;
         }
 
         .hero-content .cta {
-            padding: 10px 25px;
+            padding: 10px 20px;
             background: linear-gradient(45deg, #00d4ff, #0077aa);
             color: #fff;
             font-weight: bold;
@@ -100,22 +108,22 @@
 
         /* Features Section */
         .features {
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: #12242f;
         }
 
         .features h2 {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
             color: #00d4ff;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -134,17 +142,37 @@
         }
 
         .feature h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
             color: #00d4ff;
         }
 
         .feature p {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: #c5c6c7;
         }
 
-        /* Footer */
+        /* Go to Top Button */
+        .go-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00d4ff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 212, 255, 0.6);
+            display: none;
+            z-index: 100;
+        }
+
+        .go-top:hover {
+            background: #0077aa;
+        }
+
         footer {
             background: rgba(10, 25, 35, 0.9);
             text-align: center;
@@ -168,7 +196,6 @@
         <h1>NextGenCore AI Token</h1>
         <nav>
             <a href="#features">Features</a>
-            <a href="#tokenomics">Tokenomics</a>
             <a href="#footer">Contact</a>
         </nav>
     </header>
@@ -204,11 +231,16 @@
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
 
+    <button class="go-top" id="goTop">↑</button>
+
     <script>
-        // GSAP animation for hero text
-        gsap.from(".hero-content h2", { duration: 1.5, opacity: 0, y: -50, ease: "power4.out" });
-        gsap.from(".hero-content p", { duration: 1.5, opacity: 0, y: 50, delay: 0.3, ease: "power4.out" });
-        gsap.from(".hero-content .cta", { duration: 1.5, opacity: 0, scale: 0.8, delay: 0.6, ease: "power4.out" });
+        // Smooth Scroll for Navbar
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
 
         // THREE.js Web-like Sphere
         const scene = new THREE.Scene();
@@ -237,11 +269,18 @@
 
         animate();
 
-        // Responsive resizing
-        window.addEventListener("resize", () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+        // Go to Top Button Functionality
+        const goTopBtn = document.getElementById('goTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                goTopBtn.style.display = 'block';
+            } else {
+                goTopBtn.style.display = 'none';
+            }
+        });
+
+        goTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
