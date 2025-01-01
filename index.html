@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.38.0/tsparticles.bundle.min.js"></script>
     <style>
         /* Global Styles */
         * {
@@ -233,6 +234,9 @@
 
     <button class="go-top" id="goTop">↑</button>
 
+    <!-- AI Vibes: Data transfer particles -->
+    <div id="particles-js"></div>
+
     <script>
         // Smooth Scroll for Navbar
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -281,6 +285,20 @@
 
         goTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Particles JS for data transfer effect
+        tsParticles.load("particles-js", {
+            fullScreen: { enable: true, zIndex: 1 },
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#00d4ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                links: { enable: true, color: "#00d4ff", distance: 150, opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out" }
+            }
         });
     </script>
 </body>
