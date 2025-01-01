@@ -200,14 +200,18 @@
             height: 100%;
             z-index: 1;
         }
+
     </style>
 </head>
 <body>
     <header>
         <h1>NextGenCore AI Token</h1>
         <nav>
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#roadmap">Roadmap</a>
             <a href="#features">Features</a>
-            <a href="#footer">Contact</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
@@ -217,94 +221,46 @@
             <p>Revolutionizing Blockchain with AI Innovation.</p>
             <a href="#features" class="cta">Discover More</a>
         </div>
-        <!-- Added AI-style Data Flow Animation -->
         <div class="data-flow" id="particles-js"></div>
     </div>
 
-    <section class="features" id="features">
-        <h2>Features</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <h3>AI-Powered</h3>
-                <p>Intelligent solutions to enhance blockchain security and performance.</p>
-            </div>
-            <div class="feature">
-                <h3>Decentralized</h3>
-                <p>A transparent and globally accessible blockchain platform.</p>
-            </div>
-            <div class="feature">
-                <h3>Fast & Secure</h3>
-                <p>Lightning-fast transactions with industry-leading encryption.</p>
-            </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About NextGenCore AI Token</h2>
+            <p>NextGenCore AI Token is a groundbreaking project designed to leverage the power of artificial intelligence (AI) and blockchain technology. Our goal is to build a secure, scalable, and decentralized platform that enhances blockchain capabilities by integrating AI models to solve real-world problems.</p>
         </div>
     </section>
 
-    <footer id="footer">
-        <p>© 2025 NextGenCore AI | All Rights Reserved</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
+    <!-- Tokenomics Section -->
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <p>The NextGenCore AI Token is a utility token that serves as the fuel for the platform's ecosystem. Here's the breakdown of our tokenomics:</p>
+            <ul>
+                <li>Total Supply: 1,000,000,000 NGC Tokens</li>
+                <li>Initial Circulating Supply: 500,000,000 NGC Tokens</li>
+                <li>Private Sale: 20%</li>
+                <li>Public Sale: 30%</li>
+                <li>Team and Advisors: 15%</li>
+                <li>Partnerships & Ecosystem: 10%</li>
+                <li>Reserve Fund: 15%</li>
+                <li>Community Rewards: 10%</li>
+            </ul>
+        </div>
+    </section>
 
-    <button class="go-top" id="goTop">↑</button>
-
-    <script>
-        // Smooth Scroll for Navbar
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // THREE.js Web-like Sphere
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-        const geometry = new THREE.SphereGeometry(1, 32, 32);
-        const material = new THREE.MeshStandardMaterial({ color: 0x00d4ff, wireframe: true });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
-
-        const light = new THREE.PointLight(0xffffff, 1, 100);
-        light.position.set(10, 10, 10);
-        scene.add(light);
-
-        camera.position.z = 3;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            sphere.rotation.x += 0.01;
-            sphere.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Go Top Button Visibility
-        const goTopBtn = document.getElementById('goTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                goTopBtn.style.display = 'block';
-            } else {
-                goTopBtn.style.display = 'none';
-            }
-        });
-
-        goTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Particle Animation (Data Flow Effect)
-        tsParticles.load("particles-js", {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#00d4ff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                links: { enable: true, color: "#00d4ff", distance: 150, opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 1.5, direction: "none", random: true, straight: false, out_mode: "out" }
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+                move: { enable: true, speed: 1 },
+                repulse: { enable: true, distance: 100, duration: 1 },
+                roll: { enable: true, speed: 1, mode: "vertical" },
+                tilt: { enable: true, speed: 1, direction: "random" },
+                twinkle: { enable: true, frequency: 0.05, opacity: 1 },
+                wobble: { enable: true, distance: 15, speed: 25 },
+                links: { enable: true, distance: 150, color: "#00d4ff", opacity: 0.4, width: 1 },
+                collisions: { enable: true, mode: "bounce" },
+                interactivity: { events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } } }
             }
         });
     </script>
