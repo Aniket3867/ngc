@@ -190,6 +190,16 @@
         footer a:hover {
             color: #0077aa;
         }
+
+        /* Additional Styles for AI Vibes and Animations */
+        .data-flow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -207,6 +217,8 @@
             <p>Revolutionizing Blockchain with AI Innovation.</p>
             <a href="#features" class="cta">Discover More</a>
         </div>
+        <!-- Added AI-style Data Flow Animation -->
+        <div class="data-flow" id="particles-js"></div>
     </div>
 
     <section class="features" id="features">
@@ -234,9 +246,6 @@
 
     <button class="go-top" id="goTop">↑</button>
 
-    <!-- AI Vibes: Data transfer particles -->
-    <div id="particles-js"></div>
-
     <script>
         // Smooth Scroll for Navbar
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -249,9 +258,9 @@
         // THREE.js Web-like Sphere
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById("canvas-container").appendChild(renderer.domElement);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
 
         const geometry = new THREE.SphereGeometry(1, 32, 32);
         const material = new THREE.MeshStandardMaterial({ color: 0x00d4ff, wireframe: true });
@@ -270,10 +279,9 @@
             sphere.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
-
         animate();
 
-        // Go to Top Button Functionality
+        // Go Top Button Visibility
         const goTopBtn = document.getElementById('goTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 200) {
@@ -287,17 +295,16 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Particles JS for data transfer effect
+        // Particle Animation (Data Flow Effect)
         tsParticles.load("particles-js", {
-            fullScreen: { enable: true, zIndex: 1 },
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
+                number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: "#00d4ff" },
                 shape: { type: "circle" },
                 opacity: { value: 0.5 },
                 size: { value: 3 },
                 links: { enable: true, color: "#00d4ff", distance: 150, opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out" }
+                move: { enable: true, speed: 1.5, direction: "none", random: true, straight: false, out_mode: "out" }
             }
         });
     </script>
